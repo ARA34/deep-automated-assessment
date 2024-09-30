@@ -21,7 +21,7 @@ async function fetchProject(projectID) {
         throw new Error(`HTTP error ${metadataResponse.status} fetching project metadata`);
     }
     const metadata = await metadataReponse.json();
-    console.log(metadata)
+    console.log(metadata) // METADATA
 }
 
 function init() {
@@ -44,6 +44,36 @@ function clearReport() {
     while (removables[0]) {
         removables[0].remove();
     }
+}
+
+
+
+
+
+function checkIfComplete() {
+    if (project_count) document.getElementById("wait_time").innerHTML = '';
+    else document.getElementById("wait_time").innerHTML = `No Scratch 3.0+ projects found. Did you enter a valid Scratch ${projectMode ? 'project' : 'studio'} URL?`;
+    IS_LOADING = false;
+    console.log("None");
+}
+
+function sortReport() {
+    // Sorts reports in reports_list alphabetically by username.
+    reports_list.sort(function (a,b){
+        return a[0].localeCompare(b[0]);
+    })
+}
+
+
+/// Error Reports
+
+function unitError() {
+    let processObject = document.getElementById("process_error");
+    processObject.style.visibility = "visible";
+    processObject.style.color = "red";
+    processObject.innerHTML = "Please select a unit.";
+    IS_LOADING = false;
+
 }
 
 function noError() {

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<html id = "projectChecker">
 <head>
   <meta charset = "utf-8"/>
+  <link href = "grader.css" rel="stylesheet">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src = "bundle.js" defer></script>
 </head>
@@ -8,8 +10,24 @@
 <body>
   <div style="text-align:center">
       <div class="header">
-          <h1> SCRATCH DEEP AUTOMATED ASSESSMENT</h1>
+        <!--Logos-->
+        <img class="left_image" src="ec4all-logo-nobackground.png" alt="EC4ALL Logo" />
+        <img class="right_image" src="CanonLabSmallLogo.webp" alt="Canon Lab Logo" />
+        <!--Title-->
+        <h1> Deep Scratch Automated Assessment <br>Student Project Checker </h1>
+        <p> <br/> Select unit: </p>
       </div>
+
+      <div class = "unit-container">
+        <div class = "units">
+          <p id="unitsHTML"> </p>
+        </div>
+        <script> window.useProjectMode(); window.fillUnitsHTMLAct3(1); </script>
+        <div>
+          <p id = "selectedUnit"> No unit selected </p>
+        </div>
+
+
       <form class="url">
           <input type = "text" id = "inches_input" name = "name" placeholder="https://scratch.mit.edu/projects/...">
           <input type = "button" class = "button-1" value = "Go!" id = "process_button" onclick = "window.buttonHandler()"/>
@@ -18,4 +36,6 @@
         <p class = "wait_time"    id = "wait_time"></p>
         <p class = "status"    id = "process_status"></p>
   </div>
+  <div id = "report"> </div>
 </body>
+</html>
